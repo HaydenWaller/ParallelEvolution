@@ -1,0 +1,1338 @@
+####################################
+### FOUR SPECIES RNA-SEQ PROJECT ###
+####################################
+
+1. Examine read quality with fastqc to see if we need to do any cleanup beyond quality and adapter trimming
+
+#generic command
+/programs/FastQC-0.11.8/fastqc [options]
+
+#check each read file individually (5 HOURS for all)
+
+#kohalensis reads (you can copy all commands into a terminal and paste-it will run one after the other)
+
+cd /workdir/
+mkdir whw84
+cd /whw84/
+
+cp /home/whw84/5_species_RNAseq/raw_reads/K* .
+
+tmux
+
+/programs/FastQC-0.11.8/fastqc K10_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K10_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K2_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K2_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K3_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K3_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K4_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K4_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K6_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K6_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K7_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K7_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K8_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K8_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K9_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc K9_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+
+#neospisa reads
+
+rm K*
+
+cp /home/whw84/5_species_RNAseq/raw_reads/N* .
+
+/programs/FastQC-0.11.8/fastqc N10_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N10_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N11_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N11_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N1_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N1_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N4_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N4_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N5_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N5_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N6_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N6_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N8_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N8_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N9_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc N9_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+
+
+#paranigra reads
+
+rm N*
+
+cp /home/whw84/5_species_RNAseq/raw_reads/P* .
+
+/programs/FastQC-0.11.8/fastqc raw_reads/P10_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P10_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P12_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P12_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P14_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P14_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P15_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P15_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P16_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P16_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P18_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P18_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P3_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P3_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P6_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc raw_reads/P6_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+
+#spisa reads
+
+rm P*
+
+cp /home/whw84/5_species_RNAseq/raw_reads/S* .
+
+/programs/FastQC-0.11.8/fastqc S10_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S10_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S11_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S11_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S13_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S13_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S14_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S14_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S16_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S16_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S17_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S17_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S5_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S5_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S6_R1_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+/programs/FastQC-0.11.8/fastqc S6_R2_001.fastq.gz -t 8 -o /home/whw84/5_species_RNAseq/fastqc/
+
+#######################################################################################################################################################################################
+
+
+2. Trim adapter and low quality bases from fastq files (20 minutes per batch of 4 @ 20 cores each) ** Running Trimmomatic again (using the same settings as the built in command does when running with Trinity) is only necessary if you forget to save the trimmed reads from the Trinity run below, which I did
+
+#generic command
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 15 paired_end_reads_1.fastq paired_end_reads_2.fastq kept_paired_end_reads_1.fastq unpaired_1.fastq kept_paired_end_reads_2.fastq  unpaired_2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
+#kohalensis
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K10_R1_001.fastq.gz K10_R2_001.fastq.gz kept_K10_R1_001.fastq.gz unpaired_K10_R1.fastq kept_K10_R2_001.fastq.gz unpaired_K10_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33667336 Both Surviving: 31489954 (93.53%) Forward Only Surviving: 2067404 (6.14%) Reverse Only Surviving: 105506 (0.31%) Dropped: 4472 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K2_R1_001.fastq.gz K2_R2_001.fastq.gz kept_K2_R1_001.fastq.gz unpaired_K2_R1.fastq kept_K2_R2_001.fastq.gz unpaired_K2_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 31901156 Both Surviving: 29478712 (92.41%) Forward Only Surviving: 2310551 (7.24%) Reverse Only Surviving: 107788 (0.34%) Dropped: 4105 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K3_R1_001.fastq.gz K3_R2_001.fastq.gz kept_K3_R1_001.fastq.gz unpaired_K3_R1.fastq kept_K3_R2_001.fastq.gz unpaired_K3_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33388395 Both Surviving: 31298502 (93.74%) Forward Only Surviving: 2010955 (6.02%) Reverse Only Surviving: 74342 (0.22%) Dropped: 4596 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K4_R1_001.fastq.gz K4_R2_001.fastq.gz kept_K4_R1_001.fastq.gz unpaired_K4_R1.fastq kept_K4_R2_001.fastq.gz unpaired_K4_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32113221 Both Surviving: 30118992 (93.79%) Forward Only Surviving: 1929504 (6.01%) Reverse Only Surviving: 59952 (0.19%) Dropped: 4773 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K6_R1_001.fastq.gz K6_R2_001.fastq.gz kept_K6_R1_001.fastq.gz unpaired_K6_R1.fastq kept_K6_R2_001.fastq.gz unpaired_K6_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 30335526 Both Surviving: 28202729 (92.97%) Forward Only Surviving: 2066111 (6.81%) Reverse Only Surviving: 61875 (0.20%) Dropped: 4811 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K7_R1_001.fastq.gz K7_R2_001.fastq.gz kept_K7_R1_001.fastq.gz unpaired_K7_R1.fastq kept_K7_R2_001.fastq.gz unpaired_K7_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32044050 Both Surviving: 29884841 (93.26%) Forward Only Surviving: 2032822 (6.34%) Reverse Only Surviving: 120836 (0.38%) Dropped: 5551 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K8_R1_001.fastq.gz K8_R2_001.fastq.gz kept_K8_R1_001.fastq.gz unpaired_K8_R1.fastq kept_K8_R2_001.fastq.gz unpaired_K8_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 30940068 Both Surviving: 28987017 (93.69%) Forward Only Surviving: 1859887 (6.01%) Reverse Only Surviving: 88441 (0.29%) Dropped: 4723 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 K9_R1_001.fastq.gz K9_R2_001.fastq.gz kept_K9_R1_001.fastq.gz unpaired_K9_R1.fastq kept_K9_R2_001.fastq.gz unpaired_K9_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 34619709 Both Surviving: 32407559 (93.61%) Forward Only Surviving: 2052681 (5.93%) Reverse Only Surviving: 154694 (0.45%) Dropped: 4775 (0.01%)
+
+
+#neospisa
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N10_R1_001.fastq.gz N10_R2_001.fastq.gz kept_N10_R1_001.fastq.gz unpaired_N10_R1.fastq kept_N10_R2_001.fastq.gz unpaired_N10_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33716402 Both Surviving: 31936066 (94.72%) Forward Only Surviving: 1692559 (5.02%) Reverse Only Surviving: 84871 (0.25%) Dropped: 2906 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N11_R1_001.fastq.gz N11_R2_001.fastq.gz kept_N11_R1_001.fastq.gz unpaired_N11_R1.fastq kept_N11_R2_001.fastq.gz unpaired_N11_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33166312 Both Surviving: 30244266 (91.19%) Forward Only Surviving: 2375422 (7.16%) Reverse Only Surviving: 542746 (1.64%) Dropped: 3878 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N1_R1_001.fastq.gz N1_R2_001.fastq.gz kept_N1_R1_001.fastq.gz unpaired_N1_R1.fastq kept_N1_R2_001.fastq.gz unpaired_N1_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 39566775 Both Surviving: 36378064 (91.94%) Forward Only Surviving: 2866683 (7.25%) Reverse Only Surviving: 316261 (0.80%) Dropped: 5767 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N4_R1_001.fastq.gz N4_R2_001.fastq.gz kept_N4_R1_001.fastq.gz unpaired_N4_R1.fastq kept_N4_R2_001.fastq.gz unpaired_N4_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 43296345 Both Surviving: 40065907 (92.54%) Forward Only Surviving: 3023429 (6.98%) Reverse Only Surviving: 201548 (0.47%) Dropped: 5461 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N5_R1_001.fastq.gz N5_R2_001.fastq.gz kept_N5_R1_001.fastq.gz unpaired_N5_R1.fastq kept_N5_R2_001.fastq.gz unpaired_N5_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 37038090 Both Surviving: 34372933 (92.80%) Forward Only Surviving: 2511499 (6.78%) Reverse Only Surviving: 149511 (0.40%) Dropped: 4147 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N6_R1_001.fastq.gz N6_R2_001.fastq.gz kept_N6_R1_001.fastq.gz unpaired_N6_R1.fastq kept_N6_R2_001.fastq.gz unpaired_N6_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 27342644 Both Surviving: 25871523 (94.62%) Forward Only Surviving: 1365512 (4.99%) Reverse Only Surviving: 102530 (0.37%) Dropped: 3079 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N8_R1_001.fastq.gz N8_R2_001.fastq.gz kept_N8_R1_001.fastq.gz unpaired_N8_R1.fastq kept_N8_R2_001.fastq.gz unpaired_N8_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 29196060 Both Surviving: 26993086 (92.45%) Forward Only Surviving: 2068023 (7.08%) Reverse Only Surviving: 131953 (0.45%) Dropped: 2998 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 N9_R1_001.fastq.gz N9_R2_001.fastq.gz kept_N9_R1_001.fastq.gz unpaired_N9_R1.fastq kept_N9_R2_001.fastq.gz unpaired_N9_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 37839799 Both Surviving: 35737432 (94.44%) Forward Only Surviving: 1932480 (5.11%) Reverse Only Surviving: 165731 (0.44%) Dropped: 4156 (0.01%)
+
+
+#paranigra
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P10_R1_001.fastq.gz P10_R2_001.fastq.gz kept_P10_R1_001.fastq.gz unpaired_P10_R1.fastq kept_P10_R2_001.fastq.gz unpaired_P10_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33197023 Both Surviving: 30801221 (92.78%) Forward Only Surviving: 2192517 (6.60%) Reverse Only Surviving: 197548 (0.60%) Dropped: 5737 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P12_R1_001.fastq.gz P12_R2_001.fastq.gz kept_P12_R1_001.fastq.gz unpaired_P12_R1.fastq kept_P12_R2_001.fastq.gz unpaired_P12_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32857024 Both Surviving: 30546713 (92.97%) Forward Only Surviving: 2195775 (6.68%) Reverse Only Surviving: 108127 (0.33%) Dropped: 6409 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P14_R1_001.fastq.gz P14_R2_001.fastq.gz kept_P14_R1_001.fastq.gz unpaired_P14_R1.fastq kept_P14_R2_001.fastq.gz unpaired_P14_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32015121 Both Surviving: 29875541 (93.32%) Forward Only Surviving: 2026025 (6.33%) Reverse Only Surviving: 108553 (0.34%) Dropped: 5002 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P15_R1_001.fastq.gz P15_R2_001.fastq.gz kept_P15_R1_001.fastq.gz unpaired_P15_R1.fastq kept_P15_R2_001.fastq.gz unpaired_P15_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 31209541 Both Surviving: 29221905 (93.63%) Forward Only Surviving: 1871028 (6.00%) Reverse Only Surviving: 111290 (0.36%) Dropped: 5318 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P16_R1_001.fastq.gz P16_R2_001.fastq.gz kept_P16_R1_001.fastq.gz unpaired_P16_R1.fastq kept_P16_R2_001.fastq.gz unpaired_P16_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 34127564 Both Surviving: 31822232 (93.24%) Forward Only Surviving: 2159859 (6.33%) Reverse Only Surviving: 140520 (0.41%) Dropped: 4953 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P18_R1_001.fastq.gz P18_R2_001.fastq.gz kept_P18_R1_001.fastq.gz unpaired_P18_R1.fastq kept_P18_R2_001.fastq.gz unpaired_P18_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33361519 Both Surviving: 31589241 (94.69%) Forward Only Surviving: 1667709 (5.00%) Reverse Only Surviving: 100085 (0.30%) Dropped: 4484 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P3_R1_001.fastq.gz P3_R2_001.fastq.gz kept_P3_R1_001.fastq.gz unpaired_P3_R1.fastq kept_P3_R2_001.fastq.gz unpaired_P3_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32598599 Both Surviving: 30596256 (93.86%) Forward Only Surviving: 1881768 (5.77%) Reverse Only Surviving: 115489 (0.35%) Dropped: 5086 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 20 P6_R1_001.fastq.gz P6_R2_001.fastq.gz kept_P6_R1_001.fastq.gz unpaired_P6_R1.fastq kept_P6_R2_001.fastq.gz unpaired_P6_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 36397537 Both Surviving: 34478631 (94.73%) Forward Only Surviving: 1803957 (4.96%) Reverse Only Surviving: 109791 (0.30%) Dropped: 5158 (0.01%)
+
+
+#spisa
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S10_R1_001.fastq.gz S10_R2_001.fastq.gz kept_S10_R1_001.fastq.gz unpaired_S10_R1.fastq kept_S10_R2_001.fastq.gz unpaired_S10_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32871872 Both Surviving: 30966770 (94.20%) Forward Only Surviving: 1788973 (5.44%) Reverse Only Surviving: 110978 (0.34%) Dropped: 5151 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S11_R1_001.fastq.gz S11_R2_001.fastq.gz kept_S11_R1_001.fastq.gz unpaired_S11_R1.fastq kept_S11_R2_001.fastq.gz unpaired_S11_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32541483 Both Surviving: 30292105 (93.09%) Forward Only Surviving: 2142599 (6.58%) Reverse Only Surviving: 102013 (0.31%) Dropped: 4766 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S13_R1_001.fastq.gz S13_R2_001.fastq.gz kept_S13_R1_001.fastq.gz unpaired_S13_R1.fastq kept_S13_R2_001.fastq.gz unpaired_S13_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32099222 Both Surviving: 29763432 (92.72%) Forward Only Surviving: 2216761 (6.91%) Reverse Only Surviving: 112062 (0.35%) Dropped: 6967 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S14_R1_001.fastq.gz S14_R2_001.fastq.gz kept_S14_R1_001.fastq.gz unpaired_S14_R1.fastq kept_S14_R2_001.fastq.gz unpaired_S14_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 33988065 Both Surviving: 27197999 (80.02%) Forward Only Surviving: 6540640 (19.24%) Reverse Only Surviving: 243331 (0.72%) Dropped: 6095 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S16_R1_001.fastq.gz S16_R2_001.fastq.gz kept_S16_R1_001.fastq.gz unpaired_S16_R1.fastq kept_S16_R2_001.fastq.gz unpaired_S16_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 32506142 Both Surviving: 30194402 (92.89%) Forward Only Surviving: 2214432 (6.81%) Reverse Only Surviving: 91933 (0.28%) Dropped: 5375 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S17_R1_001.fastq.gz S17_R2_001.fastq.gz kept_S17_R1_001.fastq.gz unpaired_S17_R1.fastq kept_S17_R2_001.fastq.gz unpaired_S17_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 34296228 Both Surviving: 31150664 (90.83%) Forward Only Surviving: 3036762 (8.85%) Reverse Only Surviving: 103113 (0.30%) Dropped: 5689 (0.02%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S5_R1_001.fastq.gz S5_R2_001.fastq.gz kept_S5_R1_001.fastq.gz unpaired_S5_R1.fastq kept_S5_R2_001.fastq.gz unpaired_S5_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 31489208 Both Surviving: 29413405 (93.41%) Forward Only Surviving: 1980029 (6.29%) Reverse Only Surviving: 91227 (0.29%) Dropped: 4547 (0.01%)
+
+java -jar /programs/trimmomatic/trimmomatic-0.39.jar PE -phred33 -threads 5 S6_R1_001.fastq.gz S6_R2_001.fastq.gz kept_S6_R1_001.fastq.gz unpaired_S6_R1.fastq kept_S6_R2_001.fastq.gz unpaired_S6_R2.fastq ILLUMINACLIP:/programs/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:5 TRAILING:5 SLIDINGWINDOW:4:5 MINLEN:25
+
+#Input Read Pairs: 34044498 Both Surviving: 32128642 (94.37%) Forward Only Surviving: 1805103 (5.30%) Reverse Only Surviving: 105645 (0.31%) Dropped: 5108 (0.02%)
+
+
+#######################################################################################################################################################################################
+
+
+3. TRINITY GENOME-GUIDED DENOVO ASSEMBLY
+
+a. Align reads to LK genome with HISAT2
+
+i. build index
+
+/programs/HISAT2/hisat2-2.1.0/hisat2-build Lakoh057scf.fa /workdir/Hayden/Lakoh057scf_hisat2index 
+
+ii. Align RNAseq reads to reference genome
+
+/programs/HISAT2/hisat2-2.1.0/hisat2 -p 20 -x /workdir/Hayden/Lakoh057scf_hisat2index -1 kept_K10_R1_001.fastq.gz,kept_K2_R1_001.fastq.gz,kept_K3_R1_001.fastq.gz,kept_K4_R1_001.fastq.gz,kept_K6_R1_001.fastq.gz,kept_K7_R1_001.fastq.gz,kept_K8_R1_001.fastq.gz,kept_K9_R1_001.fastq.gz -2 kept_K10_R2_001.fastq.gz,kept_K2_R2_001.fastq.gz,kept_K3_R2_001.fastq.gz,kept_K4_R2_001.fastq.gz,kept_K6_R2_001.fastq.gz,kept_K7_R2_001.fastq.gz,kept_K8_R2_001.fastq.gz,kept_K9_R2_001.fastq.gz -S lk_alignment.sam
+
+241868306 reads; of these:
+  241868306 (100.00%) were paired; of these:
+    34004026 (14.06%) aligned concordantly 0 times
+    192455352 (79.57%) aligned concordantly exactly 1 time
+    15408928 (6.37%) aligned concordantly >1 times
+    ----
+    34004026 pairs aligned concordantly 0 times; of these:
+      2558388 (7.52%) aligned discordantly 1 time
+    ----
+    31445638 pairs aligned 0 times concordantly or discordantly; of these:
+      62891276 mates make up the pairs; of these:
+        40104737 (63.77%) aligned 0 times
+        19919158 (31.67%) aligned exactly 1 time
+        2867381 (4.56%) aligned >1 times
+91.71% overall alignment rate
+
+/programs/HISAT2/hisat2-2.1.0/hisat2 -p 20 -x /workdir/Hayden/Lakoh057scf_hisat2index -1 kept_N10_R1_001.fastq.gz,kept_N11_R1_001.fastq.gz,kept_N1_R1_001.fastq.gz,kept_N4_R1_001.fastq.gz,kept_N5_R1_001.fastq.gz,kept_N6_R1_001.fastq.gz,kept_N8_R1_001.fastq.gz,kept_N9_R1_001.fastq.gz -2 kept_N10_R2_001.fastq.gz,kept_N11_R2_001.fastq.gz,kept_N1_R2_001.fastq.gz,kept_N4_R2_001.fastq.gz,kept_N5_R2_001.fastq.gz,kept_N6_R2_001.fastq.gz,kept_N8_R2_001.fastq.gz,kept_N9_R2_001.fastq.gz -S ln_alignment.sam
+
+261599277 reads; of these:
+  261599277 (100.00%) were paired; of these:
+    55490199 (21.21%) aligned concordantly 0 times
+    196304869 (75.04%) aligned concordantly exactly 1 time
+    9804209 (3.75%) aligned concordantly >1 times
+    ----
+    55490199 pairs aligned concordantly 0 times; of these:
+      2404233 (4.33%) aligned discordantly 1 time
+    ----
+    53085966 pairs aligned 0 times concordantly or discordantly; of these:
+      106171932 mates make up the pairs; of these:
+        68119934 (64.16%) aligned 0 times
+        32664510 (30.77%) aligned exactly 1 time
+        5387488 (5.07%) aligned >1 times
+86.98% overall alignment rate
+
+/programs/HISAT2/hisat2-2.1.0/hisat2 -p 20 -x /workdir/Hayden/Lakoh057scf_hisat2index -1 kept_P10_R1_001.fastq.gz,kept_P12_R1_001.fastq.gz,kept_P14_R1_001.fastq.gz,kept_P15_R1_001.fastq.gz,kept_P16_R1_001.fastq.gz,kept_P18_R1_001.fastq.gz,kept_P3_R1_001.fastq.gz,kept_P6_R1_001.fastq.gz -2 kept_P10_R2_001.fastq.gz,kept_P12_R2_001.fastq.gz,kept_P14_R2_001.fastq.gz,kept_P15_R2_001.fastq.gz,kept_P16_R2_001.fastq.gz,kept_P18_R2_001.fastq.gz,kept_P3_R2_001.fastq.gz,kept_P6_R2_001.fastq.gz -S lp_alignment.sam
+
+248931740 reads; of these:
+  248931740 (100.00%) were paired; of these:
+    41490705 (16.67%) aligned concordantly 0 times
+    191251642 (76.83%) aligned concordantly exactly 1 time
+    16189393 (6.50%) aligned concordantly >1 times
+    ----
+    41490705 pairs aligned concordantly 0 times; of these:
+      2538128 (6.12%) aligned discordantly 1 time
+    ----
+    38952577 pairs aligned 0 times concordantly or discordantly; of these:
+      77905154 mates make up the pairs; of these:
+        48034282 (61.66%) aligned 0 times
+        25699995 (32.99%) aligned exactly 1 time
+        4170877 (5.35%) aligned >1 times
+90.35% overall alignment rate
+
+/programs/HISAT2/hisat2-2.1.0/hisat2 -p 20 -x /workdir/Hayden/Lakoh057scf_hisat2index -1 kept_S10_R1_001.fastq.gz,kept_S11_R1_001.fastq.gz,kept_S13_R1_001.fastq.gz,kept_S14_R1_001.fastq.gz,kept_S16_R1_001.fastq.gz,kept_S17_R1_001.fastq.gz,kept_S5_R1_001.fastq.gz,kept_S6_R1_001.fastq.gz -2 kept_S10_R2_001.fastq.gz,kept_S11_R2_001.fastq.gz,kept_S13_R2_001.fastq.gz,kept_S14_R2_001.fastq.gz,kept_S16_R2_001.fastq.gz,kept_S17_R2_001.fastq.gz,kept_S5_R2_001.fastq.gz,kept_S6_R2_001.fastq.gz -S ls_alignment.sam
+
+241107419 reads; of these:
+  241107419 (100.00%) were paired; of these:
+    49324575 (20.46%) aligned concordantly 0 times
+    181424671 (75.25%) aligned concordantly exactly 1 time
+    10358173 (4.30%) aligned concordantly >1 times
+    ----
+    49324575 pairs aligned concordantly 0 times; of these:
+      2691021 (5.46%) aligned discordantly 1 time
+    ----
+    46633554 pairs aligned 0 times concordantly or discordantly; of these:
+      93267108 mates make up the pairs; of these:
+        61590730 (66.04%) aligned 0 times
+        26934744 (28.88%) aligned exactly 1 time
+        4741634 (5.08%) aligned >1 times
+87.23% overall alignment rate
+
+
+b. Convert .sam to .bam and sort
+
+i. convert .sam to .bam
+
+samtools view -Sbo lk_alignment.bam lk_alignment.sam
+samtools view -Sbo ln_alignment.bam ln_alignment.sam
+samtools view -Sbo lp_alignment.bam lp_alignment.sam
+samtools view -Sbo ls_alignment.bam ls_alignment.sam
+
+ii. sort .bam
+
+samtools sort -@ 20 -o lk_alignment_sorted.bam lk_alignment.bam
+samtools sort -@ 20 -o ln_alignment_sorted.bam ln_alignment.bam
+samtools sort -@ 20 -o lp_alignment_sorted.bam lp_alignment.bam
+samtools sort -@ 20 -o ls_alignment_sorted.bam ls_alignment.bam
+
+c. TRINITY genome-guided denovo assembly
+
+wget https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v2.14.0/trinityrnaseq-v2.14.0.FULL.tar.gz
+tar -xvzf trinityrnaseq-v2.14.0.FULL.tar.gz
+cd /trinityrnaseq-v2.14.0/
+make
+cd ..
+
+export PATH=/programs/jellyfish-2.2.7/bin:/programs/salmon-1.0.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc-7.3.0/lib64:/usr/local/gcc-7.3.0/lib
+
+#KOHALENSIS (24 hours)
+
+tmux 
+mkdir kohalensis
+cd kohalensis
+cp /workdir/Hayden lk_alignment_sorted.bam .
+/workdir/Hayden/trinityrnaseq-v2.14.0/Trinity --genome_guided_bam lk_alignment_sorted.bam --genome_guided_max_intron 5000 --max_memory 250G --CPU 20
+
+#NEOSPISA (24 hours)
+
+tmux
+mkdir neospisa
+cd neospisa
+cp /workdir/Hayden ln_alignment_sorted.bam .
+/workdir/Hayden/trinityrnaseq-v2.14.0/Trinity --genome_guided_bam ln_alignment_sorted.bam --genome_guided_max_intron 5000 --max_memory 250G --CPU 20
+
+#PARANIGRA (25 hours)
+
+tmux
+mkdir paranigra
+cd paranigra
+cp /workdir/Hayden lp_alignment_sorted.bam .
+/workdir/Hayden/trinityrnaseq-v2.14.0/Trinity --genome_guided_bam lp_alignment_sorted.bam --genome_guided_max_intron 5000 --max_memory 250G --CPU 20
+
+#SPISA (24 hours)
+
+tmux
+mkdir spisa
+cd spisa
+cp /workdir/Hayden ls_alignment_sorted.bam .
+/workdir/Hayden/trinityrnaseq-v2.14.0/Trinity --genome_guided_bam ls_alignment_sorted.bam --genome_guided_max_intron 5000 --max_memory 250G --CPU 20
+
+
+#######################################################################################################################################################################################
+
+4. QUALITY CONTROL
+
+a. Basic overview with TrinityStats.pl 
+
+#KOHALENSIS (30 seconds)
+trinityrnaseq-v2.14.0/util/TrinityStats.pl lk_Trinity.fasta
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':  213390
+Total trinity transcripts:      323011
+Percent GC: 38.12
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+        Contig N10: 9340
+        Contig N20: 6804
+        Contig N30: 5310
+        Contig N40: 4167
+        Contig N50: 3217
+
+        Median contig length: 518
+        Average contig: 1335.34
+        Total assembled bases: 431329728
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+        Contig N10: 7721
+        Contig N20: 5214
+        Contig N30: 3577
+        Contig N40: 2289
+        Contig N50: 1347
+
+        Median contig length: 355
+        Average contig: 747.15
+        Total assembled bases: 159434510
+
+
+
+#NEOSPISA (30 seconds)
+trinityrnaseq-v2.14.0/util/TrinityStats.pl ln_Trinity.fasta
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':  220332
+Total trinity transcripts:      336480
+Percent GC: 38.06
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+        Contig N10: 9181
+        Contig N20: 6691
+        Contig N30: 5170
+        Contig N40: 4023
+        Contig N50: 3090
+
+        Median contig length: 514
+        Average contig: 1298.60
+        Total assembled bases: 436952187
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+        Contig N10: 7612
+        Contig N20: 5038
+        Contig N30: 3380
+        Contig N40: 2111
+        Contig N50: 1257
+
+        Median contig length: 355
+        Average contig: 730.57
+        Total assembled bases: 160968595
+
+
+#PARANIGRA (30 seconds)
+trinityrnaseq-v2.14.0/util/TrinityStats.pl lp_Trinity.fasta
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':  221309
+Total trinity transcripts:      335102
+Percent GC: 38.15
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+        Contig N10: 9316
+        Contig N20: 6713
+        Contig N30: 5192
+        Contig N40: 4077
+        Contig N50: 3127
+
+        Median contig length: 508
+        Average contig: 1301.46
+        Total assembled bases: 436121530
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+        Contig N10: 7600
+        Contig N20: 5058
+        Contig N30: 3420
+        Contig N40: 2136
+        Contig N50: 1255
+
+        Median contig length: 354
+        Average contig: 729.50
+        Total assembled bases: 161445217
+
+
+#SPISA (30 seconds)
+trinityrnaseq-v2.14.0/util/TrinityStats.pl ls_Trinity.fasta
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':  209855
+Total trinity transcripts:      313845
+Percent GC: 38.02
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+        Contig N10: 9129
+        Contig N20: 6674
+        Contig N30: 5157
+        Contig N40: 4070
+        Contig N50: 3124
+
+        Median contig length: 491
+        Average contig: 1280.09
+        Total assembled bases: 401750197
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+        Contig N10: 7661
+        Contig N20: 5113
+        Contig N30: 3450
+        Contig N40: 2164
+        Contig N50: 1261
+
+        Median contig length: 346
+        Average contig: 720.99
+        Total assembled bases: 151302767
+
+
+
+b. Remove redundant reads with CD-HIT (10 mins) #the output from this step will become your go-to "transcriptome assembly" file going forward
+
+#KOHALENSIS
+cp /home/whw84/5_species_RNAseq/Trinity_outputs/kohalensis/lk_Trinity.fasta .
+
+/programs/cd-hit-4.8.1/cd-hit-est -i lk_Trinity.fasta -o lk_Trinity_cdhit98.fasta -c 0.98 -T 38 -M 45000
+
+
+#NEOSPISA
+cp /home/whw84/5_species_RNAseq/Trinity_outputs/neospisa/ln_Trinity.fasta .
+
+/programs/cd-hit-4.8.1/cd-hit-est -i ln_Trinity.fasta -o ln_Trinity_cdhit98.fasta -c 0.98 -T 38 -M 45000
+
+
+#PARANIGRA
+cp /home/whw84/5_species_RNAseq/Trinity_outputs/paranigra/lp_Trinity.fasta .
+
+/programs/cd-hit-4.8.1/cd-hit-est -i lp_Trinity.fasta -o lp_Trinity_cdhit98.fasta -c 0.98 -T 38 -M 45000
+
+#SPISA
+cp /home/whw84/5_species_RNAseq/Trinity_outputs/spisa/ls_Trinity.fasta .
+
+/programs/cd-hit-4.8.1/cd-hit-est -i ls_Trinity.fasta -o ls_Trinity_cdhit98.fasta -c 0.98 -T 38 -M 45000
+
+
+
+c. Align raw reads back to transcriptome with bowtie2
+
+export PATH=/programs/bowtie2-2.4.3-linux-x86_64:$PATH
+
+i. build index 
+
+#KOHALENSIS
+bowtie2-build lk_Trinity_cdhit98.fasta lk_index
+
+#NEOSPISA
+bowtie2-build ln_Trinity_cdhit98.fasta ln_index
+
+#PARANIGRA
+bowtie2-build lp_Trinity_cdhit98.fasta lp_index
+
+#SPISA
+bowtie2-build ls_Trinity_cdhit98.fasta ls_index
+
+
+ii. Align RNAseq reads to transcriptome (5 hours)
+
+#KOHALENSIS
+bowtie2 -p 20 -q -x lk_index -1 kept_K10_R1_001.fastq.gz,kept_K2_R1_001.fastq.gz,kept_K3_R1_001.fastq.gz,kept_K4_R1_001.fastq.gz,kept_K6_R1_001.fastq.gz,kept_K7_R1_001.fastq.gz,kept_K8_R1_001.fastq.gz,kept_K9_R1_001.fastq.gz -2 kept_K10_R2_001.fastq.gz,kept_K2_R2_001.fastq.gz,kept_K3_R2_001.fastq.gz,kept_K4_R2_001.fastq.gz,kept_K6_R2_001.fastq.gz,kept_K7_R2_001.fastq.gz,kept_K8_R2_001.fastq.gz,kept_K9_R2_001.fastq.gz -S lk_RNAalign.sam
+
+241868306 reads; of these:
+  241868306 (100.00%) were paired; of these:
+    49416647 (20.43%) aligned concordantly 0 times
+    38103439 (15.75%) aligned concordantly exactly 1 time
+    154348220 (63.81%) aligned concordantly >1 times
+    ----
+    49416647 pairs aligned concordantly 0 times; of these:
+      4104716 (8.31%) aligned discordantly 1 time
+    ----
+    45311931 pairs aligned 0 times concordantly or discordantly; of these:
+      90623862 mates make up the pairs; of these:
+        21281681 (23.48%) aligned 0 times
+        5185366 (5.72%) aligned exactly 1 time
+        64156815 (70.79%) aligned >1 times
+95.60% overall alignment rate
+
+#NEOSPISA
+bowtie2 -p 20 -q -x ln_index -1 kept_N10_R1_001.fastq.gz,kept_N11_R1_001.fastq.gz,kept_N1_R1_001.fastq.gz,kept_N4_R1_001.fastq.gz,kept_N5_R1_001.fastq.gz,kept_N6_R1_001.fastq.gz,kept_N8_R1_001.fastq.gz,kept_N9_R1_001.fastq.gz -2 kept_N10_R2_001.fastq.gz,kept_N11_R2_001.fastq.gz,kept_N1_R2_001.fastq.gz,kept_N4_R2_001.fastq.gz,kept_N5_R2_001.fastq.gz,kept_N6_R2_001.fastq.gz,kept_N8_R2_001.fastq.gz,kept_N9_R2_001.fastq.gz -S ln_RNAalign.sam
+
+261599277 reads; of these:
+  261599277 (100.00%) were paired; of these:
+    53329690 (20.39%) aligned concordantly 0 times
+    41971609 (16.04%) aligned concordantly exactly 1 time
+    166297978 (63.57%) aligned concordantly >1 times
+    ----
+    53329690 pairs aligned concordantly 0 times; of these:
+      4590061 (8.61%) aligned discordantly 1 time
+    ----
+    48739629 pairs aligned 0 times concordantly or discordantly; of these:
+      97479258 mates make up the pairs; of these:
+        22442123 (23.02%) aligned 0 times
+        5532306 (5.68%) aligned exactly 1 time
+        69504829 (71.30%) aligned >1 times
+95.71% overall alignment rate
+
+#PARANIGRA
+bowtie2 -p 20 -q -x lp_index -1 kept_P10_R1_001.fastq.gz,kept_P12_R1_001.fastq.gz,kept_P14_R1_001.fastq.gz,kept_P15_R1_001.fastq.gz,kept_P16_R1_001.fastq.gz,kept_P18_R1_001.fastq.gz,kept_P3_R1_001.fastq.gz,kept_P6_R1_001.fastq.gz -2 kept_P10_R2_001.fastq.gz,kept_P12_R2_001.fastq.gz,kept_P14_R2_001.fastq.gz,kept_P15_R2_001.fastq.gz,kept_P16_R2_001.fastq.gz,kept_P18_R2_001.fastq.gz,kept_P3_R2_001.fastq.gz,kept_P6_R2_001.fastq.gz -S lp_RNAalign.sam
+
+248931740 reads; of these:
+  248931740 (100.00%) were paired; of these:
+    50173463 (20.16%) aligned concordantly 0 times
+    37958358 (15.25%) aligned concordantly exactly 1 time
+    160799919 (64.60%) aligned concordantly >1 times
+    ----
+    50173463 pairs aligned concordantly 0 times; of these:
+      4042657 (8.06%) aligned discordantly 1 time
+    ----
+    46130806 pairs aligned 0 times concordantly or discordantly; of these:
+      92261612 mates make up the pairs; of these:
+        21513517 (23.32%) aligned 0 times
+        6309868 (6.84%) aligned exactly 1 time
+        64438227 (69.84%) aligned >1 times
+95.68% overall alignment rate
+
+#SPISA
+bowtie2 -p 20 -q -x ls_index -1 kept_S10_R1_001.fastq.gz,kept_S11_R1_001.fastq.gz,kept_S13_R1_001.fastq.gz,kept_S14_R1_001.fastq.gz,kept_S16_R1_001.fastq.gz,kept_S17_R1_001.fastq.gz,kept_S5_R1_001.fastq.gz,kept_S6_R1_001.fastq.gz -2 kept_S10_R2_001.fastq.gz,kept_S11_R2_001.fastq.gz,kept_S13_R2_001.fastq.gz,kept_S14_R2_001.fastq.gz,kept_S16_R2_001.fastq.gz,kept_S17_R2_001.fastq.gz,kept_S5_R2_001.fastq.gz,kept_S6_R2_001.fastq.gz -S ls_RNAalign.sam
+
+241107419 reads; of these:
+  241107419 (100.00%) were paired; of these:
+    43688745 (18.12%) aligned concordantly 0 times
+    35968550 (14.92%) aligned concordantly exactly 1 time
+    161450124 (66.96%) aligned concordantly >1 times
+    ----
+    43688745 pairs aligned concordantly 0 times; of these:
+      3475911 (7.96%) aligned discordantly 1 time
+    ----
+    40212834 pairs aligned 0 times concordantly or discordantly; of these:
+      80425668 mates make up the pairs; of these:
+        20641653 (25.67%) aligned 0 times
+        3686526 (4.58%) aligned exactly 1 time
+        56097489 (69.75%) aligned >1 times
+95.72% overall alignment rate
+
+
+iii. Get sequencing depth statistics with samtools 
+
+#KOHALENSIS
+samtools view -@ 20 -Sbo lk_RNAalign.bam lk_RNAalign.sam 
+
+samtools sort -@ 20 -o lk_RNAalign_sorted.bam lk_RNAalign.bam
+
+samtools depth lk_RNAalign_sorted.bam  |  awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)^2)}'
+
+Average =  198.958
+Stdev =  4896.51
+
+#NEOSPISA
+samtools view -@ 20 -Sbo ln_RNAalign.bam ln_RNAalign.sam
+
+samtools sort -@ 20 -o ln_RNAalign_sorted.bam ln_RNAalign.bam
+
+samtools depth ln_RNAalign_sorted.bam  |  awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)^2)}'
+
+Average =  216.52
+Stdev =  4451.67
+
+#PARANIGRA
+samtools view -@ 20 -Sbo lp_RNAalign.bam lp_RNAalign.sam
+
+samtools sort -@ 20 -o lp_RNAalign_sorted.bam lp_RNAalign.bam
+
+samtools depth lp_RNAalign_sorted.bam  |  awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)^2)}'
+
+Average =  205.284
+Stdev =  4927.46
+
+#SPISA
+samtools view -@ 20 -Sbo ls_RNAalign.bam ls_RNAalign.sam
+
+samtools sort -@ 20 -o ls_RNAalign_sorted.bam ls_RNAalign.bam
+
+samtools depth ls_RNAalign_sorted.bam  |  awk '{sum+=$3; sumsq+=$3*$3} END { print "Average = ",sum/NR; print "Stdev = ",sqrt(sumsq/NR - (sum/NR)^2)}'
+
+Average =  210.621
+Stdev =  5293.02
+
+
+d. BUSCO (20 mins)
+
+i. Get longest isoform seq fasta for each sample
+
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl lk_Trinity_cdhit98.fasta > lk_longestiso.fasta
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl ln_Trinity_cdhit98.fasta > ln_longestiso.fasta
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl lp_Trinity_cdhit98.fasta > lp_longestiso.fasta
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl ls_Trinity_cdhit98.fasta > ls_longestiso.fasta
+
+
+source /programs/miniconda3/bin/activate busco-5.2.2
+
+#KOHALENSIS
+busco -i lk_longestiso.fasta -l arthropoda_odb10 -o lk_BUSCO_output -m transcriptome -c 80
+
+        --------------------------------------------------
+        |Results from dataset arthropoda_odb10            |
+        --------------------------------------------------
+        |C:91.0%[S:87.8%,D:3.2%],F:3.2%,M:5.8%,n:1013     |
+        |921    Complete BUSCOs (C)                       |
+        |889    Complete and single-copy BUSCOs (S)       |
+        |32     Complete and duplicated BUSCOs (D)        |
+        |32     Fragmented BUSCOs (F)                     |
+        |60     Missing BUSCOs (M)                        |
+        |1013   Total BUSCO groups searched               |
+        --------------------------------------------------
+
+#NEOSPISA
+busco -i ln_longestiso.fasta -l arthropoda_odb10 -o ln_BUSCO_output -m transcriptome -c 80
+
+        --------------------------------------------------
+        |Results from dataset arthropoda_odb10            |
+        --------------------------------------------------
+        |C:90.2%[S:86.8%,D:3.4%],F:3.8%,M:6.0%,n:1013     |
+        |913    Complete BUSCOs (C)                       |
+        |879    Complete and single-copy BUSCOs (S)       |
+        |34     Complete and duplicated BUSCOs (D)        |
+        |38     Fragmented BUSCOs (F)                     |
+        |62     Missing BUSCOs (M)                        |
+        |1013   Total BUSCO groups searched               |
+        --------------------------------------------------
+
+#PARANIGRA
+busco -i lp_longestiso.fasta -l arthropoda_odb10 -o lp_BUSCO_output -m transcriptome -c 80
+
+        --------------------------------------------------
+        |Results from dataset arthropoda_odb10            |
+        --------------------------------------------------
+        |C:91.2%[S:88.0%,D:3.2%],F:4.1%,M:4.7%,n:1013     |
+        |923    Complete BUSCOs (C)                       |
+        |891    Complete and single-copy BUSCOs (S)       |
+        |32     Complete and duplicated BUSCOs (D)        |
+        |42     Fragmented BUSCOs (F)                     |
+        |48     Missing BUSCOs (M)                        |
+        |1013   Total BUSCO groups searched               |
+        --------------------------------------------------
+
+#SPISA
+busco -i ls_longestiso.fasta -l arthropoda_odb10 -o ls_BUSCO_output -m transcriptome -c 80
+
+        --------------------------------------------------
+        |Results from dataset arthropoda_odb10            |
+        --------------------------------------------------
+        |C:90.2%[S:87.6%,D:2.6%],F:4.0%,M:5.8%,n:1013     |
+        |913    Complete BUSCOs (C)                       |
+        |887    Complete and single-copy BUSCOs (S)       |
+        |26     Complete and duplicated BUSCOs (D)        |
+        |41     Fragmented BUSCOs (F)                     |
+        |59     Missing BUSCOs (M)                        |
+        |1013   Total BUSCO groups searched               |
+
+
+
+e. Contig Ex90N50 and Ex90 Gene Counting #must complete 5a and 5b first
+
+
+trinityrnaseq-v2.14.0/util/misc/contig_ExN50_statistic.pl lk.isoform.TMM.EXPR.matrix lk_Trinity_cdhit98.fasta | tee lk.ExN50.stats
+
+90      3297    15200
+
+trinityrnaseq-v2.14.0/util/misc/contig_ExN50_statistic.pl ln.isoform.TMM.EXPR.matrix ln_Trinity_cdhit98.fasta | tee ln.ExN50.stats
+
+90      3238    12324
+
+trinityrnaseq-v2.14.0/util/misc/contig_ExN50_statistic.pl lp.isoform.TMM.EXPR.matrix lp_Trinity_cdhit98.fasta | tee lp.ExN50.stats
+
+90      3273    13892
+
+trinityrnaseq-v2.14.0/util/misc/contig_ExN50_statistic.pl ls.isoform.TMM.EXPR.matrix ls_Trinity_cdhit98.fasta | tee ls.ExN50.stats
+
+90      3283    13253
+
+
+#######################################################################################################################################################################################
+
+5. Estimate transcript abundance with RSEM
+
+a. Estimating transcript abundances 
+
+export PATH=/programs/RSEM-1.3.3/bin:$PATH
+export PATH=/programs/bowtie2-2.4.3-linux-x86_64:$PATH
+
+
+#KOHALENSIS
+cp /home/whw84/5_species_RNAseq/kohalensis_samples_file.txt .
+trinityrnaseq-v2.14.0/util/support_scripts/get_Trinity_gene_to_trans_map.pl lk_Trinity_cdhit98.fasta > lk_Trinity_cdhit98.fasta.gene_trans_map
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts lk_Trinity_cdhit98.fasta --est_method RSEM --aln_method bowtie2 --gene_trans_map lk_Trinity_cdhit98.fasta.gene_trans_map --prep_reference --thread_count 20
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts lk_Trinity_cdhit98.fasta --seqType fq --left kept_K10_R1_001.fastq.gz,kept_K2_R1_001.fastq.gz,kept_K3_R1_001.fastq.gz,kept_K4_R1_001.fastq.gz,kept_K6_R1_001.fastq.gz,kept_K7_R1_001.fastq.gz,kept_K8_R1_001.fastq.gz,kept_K9_R1_001.fastq.gz --right kept_K10_R2_001.fastq.gz,kept_K2_R2_001.fastq.gz,kept_K3_R2_001.fastq.gz,kept_K4_R2_001.fastq.gz,kept_K6_R2_001.fastq.gz,kept_K7_R2_001.fastq.gz,kept_K8_R2_001.fastq.gz,kept_K9_R2_001.fastq.gz --samples_file kohalensis_samples_file.txt --est_method RSEM --aln_method bowtie2 --gene_trans_map lk_Trinity_cdhit98.fasta.gene_trans_map --thread_count 20 --output_dir lk
+
+
+#NEOSPISA
+cp /home/whw84/5_species_RNAseq/neospisa_samples_file.txt .
+trinityrnaseq-v2.14.0/util/support_scripts/get_Trinity_gene_to_trans_map.pl ln_Trinity_cdhit98.fasta > ln_Trinity_cdhit98.fasta.gene_trans_map
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts ln_Trinity_cdhit98.fasta --est_method RSEM --aln_method bowtie2 --gene_trans_map ln_Trinity_cdhit98.fasta.gene_trans_map --prep_reference --thread_count 20
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts ln_Trinity_cdhit98.fasta --seqType fq --left kept_N10_R1_001.fastq.gz,kept_N11_R1_001.fastq.gz,kept_N1_R1_001.fastq.gz,kept_N4_R1_001.fastq.gz,kept_N5_R1_001.fastq.gz,kept_N6_R1_001.fastq.gz,kept_N8_R1_001.fastq.gz,kept_N9_R1_001.fastq.gz --right kept_N10_R2_001.fastq.gz,kept_N11_R2_001.fastq.gz,kept_N1_R2_001.fastq.gz,kept_N4_R2_001.fastq.gz,kept_N5_R2_001.fastq.gz,kept_N6_R2_001.fastq.gz,kept_N8_R2_001.fastq.gz,kept_N9_R2_001.fastq.gz --samples_file neospisa_samples_file.txt --est_method RSEM --aln_method bowtie2 --gene_trans_map ln_Trinity_cdhit98.fasta.gene_trans_map --thread_count 20 --output_dir ln
+
+
+#PARANIGRA
+cp /home/whw84/5_species_RNAseq/paranigra_samples_file.txt .
+trinityrnaseq-v2.14.0/util/support_scripts/get_Trinity_gene_to_trans_map.pl lp_Trinity_cdhit98.fasta > lp_Trinity_cdhit98.fasta.gene_trans_map
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts lp_Trinity_cdhit98.fasta --est_method RSEM --aln_method bowtie2 --gene_trans_map lp_Trinity_cdhit98.fasta.gene_trans_map --prep_reference --thread_count 20
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts lp_Trinity_cdhit98.fasta --seqType fq --left kept_P10_R1_001.fastq.gz,kept_P12_R1_001.fastq.gz,kept_P14_R1_001.fastq.gz,kept_P15_R1_001.fastq.gz,kept_P16_R1_001.fastq.gz,kept_P18_R1_001.fastq.gz,kept_P3_R1_001.fastq.gz,kept_P6_R1_001.fastq.gz --right kept_P10_R2_001.fastq.gz,kept_P12_R2_001.fastq.gz,kept_P14_R2_001.fastq.gz,kept_P15_R2_001.fastq.gz,kept_P16_R2_001.fastq.gz,kept_P18_R2_001.fastq.gz,kept_P3_R2_001.fastq.gz,kept_P6_R2_001.fastq.gz --samples_file paranigra_samples_file.txt --est_method RSEM --aln_method bowtie2 --gene_trans_map lp_Trinity_cdhit98.fasta.gene_trans_map --thread_count 20 --output_dir lp
+
+
+#SPISA
+cp /home/whw84/5_species_RNAseq/spisa_samples_file.txt .
+trinityrnaseq-v2.14.0/util/support_scripts/get_Trinity_gene_to_trans_map.pl ls_Trinity_cdhit98.fasta > ls_Trinity_cdhit98.fasta.gene_trans_map
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts ls_Trinity_cdhit98.fasta --est_method RSEM --aln_method bowtie2 --gene_trans_map ls_Trinity_cdhit98.fasta.gene_trans_map --prep_reference --thread_count 20
+
+trinityrnaseq-v2.14.0/util/align_and_estimate_abundance.pl --transcripts ls_Trinity_cdhit98.fasta --seqType fq --left kept_S10_R1_001.fastq.gz,kept_S11_R1_001.fastq.gz,kept_S13_R1_001.fastq.gz,kept_S14_R1_001.fastq.gz,kept_S16_R1_001.fastq.gz,kept_S17_R1_001.fastq.gz,kept_S5_R1_001.fastq.gz,kept_S6_R1_001.fastq.gz --right kept_S10_R2_001.fastq.gz,kept_S11_R2_001.fastq.gz,kept_S13_R2_001.fastq.gz,kept_S14_R2_001.fastq.gz,kept_S16_R2_001.fastq.gz,kept_S17_R2_001.fastq.gz,kept_S5_R2_001.fastq.gz,kept_S6_R2_001.fastq.gz --samples_file spisa_samples_file.txt --est_method RSEM --aln_method bowtie2 --gene_trans_map ls_Trinity_cdhit98.fasta.gene_trans_map --thread_count 20 --output_dir ls
+
+
+b. Build matrices
+
+#KOHALENSIS
+trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map lk_Trinity_cdhit98.fasta.gene_trans_map --name_sample_by_basedir K10/RSEM.isoforms.results K2/RSEM.isoforms.results K3/RSEM.isoforms.results K4/RSEM.isoforms.results K6/RSEM.isoforms.results K7/RSEM.isoforms.results K8/RSEM.isoforms.results K9/RSEM.isoforms.results --out_prefix lk
+
+#NEOSPISA
+trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map ln_Trinity_cdhit98.fasta.gene_trans_map --name_sample_by_basedir N10/RSEM.isoforms.results N11/RSEM.isoforms.results N1/RSEM.isoforms.results N4/RSEM.isoforms.results N5/RSEM.isoforms.results N6/RSEM.isoforms.results N8/RSEM.isoforms.results N9/RSEM.isoforms.results --out_prefix ln
+
+#PARANIGRA
+trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map lp_Trinity_cdhit98.fasta.gene_trans_map --name_sample_by_basedir P10/RSEM.isoforms.results P12/RSEM.isoforms.results P14/RSEM.isoforms.results P15/RSEM.isoforms.results P16/RSEM.isoforms.results P18/RSEM.isoforms.results P3/RSEM.isoforms.results P6/RSEM.isoforms.results --out_prefix lp
+
+#SPISA
+trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map ls_Trinity_cdhit98.fasta.gene_trans_map --name_sample_by_basedir S10/RSEM.isoforms.results S11/RSEM.isoforms.results S13/RSEM.isoforms.results S14/RSEM.isoforms.results S16/RSEM.isoforms.results S17/RSEM.isoforms.results S5/RSEM.isoforms.results S6/RSEM.isoforms.results --out_prefix ls
+
+
+c. Filter transcriptomes based on expression values
+
+#KOHALENSIS
+trinityrnaseq-v2.14.0/util/filter_low_expr_transcripts.pl --matrix lk.isoform.TMM.EXPR.matrix --transcripts lk_Trinity_cdhit98.fasta --min_expr_any 1 --gene_to_trans_map lk_Trinity_cdhit98.fasta.gene_trans_map > lk_Trinity_cdhit98_1TPMfiltered
+
+#NEOSPISA
+trinityrnaseq-v2.14.0/util/filter_low_expr_transcripts.pl --matrix ln.isoform.TMM.EXPR.matrix --transcripts ln_Trinity_cdhit98.fasta --min_expr_any 1 --gene_to_trans_map ln_Trinity_cdhit98.fasta.gene_trans_map > ln_Trinity_cdhit98_1TPMfiltered
+
+#PARANIGRA
+trinityrnaseq-v2.14.0/util/filter_low_expr_transcripts.pl --matrix lp.isoform.TMM.EXPR.matrix --transcripts lp_Trinity_cdhit98.fasta --min_expr_any 1 --gene_to_trans_map lp_Trinity_cdhit98.fasta.gene_trans_map > lp_Trinity_cdhit98_1TPMfiltered
+
+#SPISA
+trinityrnaseq-v2.14.0/util/filter_low_expr_transcripts.pl --matrix ls.isoform.TMM.EXPR.matrix --transcripts ls_Trinity_cdhit98.fasta --min_expr_any 1 --gene_to_trans_map ls_Trinity_cdhit98.fasta.gene_trans_map > ls_Trinity_cdhit98_1TPMfiltered
+
+
+#######################################################################################################################################################################################
+
+
+6. Extract Longest Open Reading Frame from Each Filtered Transcriptome with TransDecoder
+
+wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+gunzip uniprot_sprot.fasta.gz
+/programs/diamond/diamond makedb --in uniprot_sprot.fasta -d uniprot_db
+
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl lk_Trinity_cdhit98_1TPMfiltered > lk_Trinity_cdhit98_1TPMfiltered_longestiso
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl ln_Trinity_cdhit98_1TPMfiltered > ln_Trinity_cdhit98_1TPMfiltered_longestiso
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl lp_Trinity_cdhit98_1TPMfiltered > lp_Trinity_cdhit98_1TPMfiltered_longestiso
+trinityrnaseq-v2.14.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl ls_Trinity_cdhit98_1TPMfiltered > ls_Trinity_cdhit98_1TPMfiltered_longestiso
+
+
+#KOHALENSIS
+/programs/TransDecoder-v5.5.0/TransDecoder.LongOrfs -t lk_Trinity_cdhit98_1TPMfiltered_longestiso
+/programs/diamond/diamond blastp --query lk_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder_dir/longest_orfs.pep -d uniprot_db --out lk_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6 --evalue 1e-5 --threads 20 --max-target-seqs 1 --outfmt 6
+/programs/TransDecoder-v5.5.0/TransDecoder.Predict -t lk_Trinity_cdhit98_1TPMfiltered_longestiso --retain_blastp_hits lk_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6
+
+#NEOSPISA
+/programs/TransDecoder-v5.5.0/TransDecoder.LongOrfs -t ln_Trinity_cdhit98_1TPMfiltered_longestiso
+/programs/diamond/diamond blastp --query ln_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder_dir/longest_orfs.pep -d uniprot_db --out ln_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6 --evalue 1e-5 --threads 20 --max-target-seqs 1 --outfmt 6
+/programs/TransDecoder-v5.5.0/TransDecoder.Predict -t ln_Trinity_cdhit98_1TPMfiltered_longestiso --retain_blastp_hits ln_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6
+
+#PARANIGRA
+/programs/TransDecoder-v5.5.0/TransDecoder.LongOrfs -t lp_Trinity_cdhit98_1TPMfiltered_longestiso
+/programs/diamond/diamond blastp --query lp_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder_dir/longest_orfs.pep -d uniprot_db --out lp_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6 --evalue 1e-5 --threads 20 --max-target-seqs 1 --outfmt 6
+/programs/TransDecoder-v5.5.0/TransDecoder.Predict -t lp_Trinity_cdhit98_1TPMfiltered_longestiso --retain_blastp_hits lp_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6
+
+#SPISA
+/programs/TransDecoder-v5.5.0/TransDecoder.LongOrfs -t ls_Trinity_cdhit98_1TPMfiltered_longestiso
+/programs/diamond/diamond blastp --query ls_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder_dir/longest_orfs.pep -d uniprot_db --out ls_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6 --evalue 1e-5 --threads 20 --max-target-seqs 1 --outfmt 6
+/programs/TransDecoder-v5.5.0/TransDecoder.Predict -t ls_Trinity_cdhit98_1TPMfiltered_longestiso --retain_blastp_hits ls_Trinity_cdhit98_1TPMfiltered_longestiso_blastp.outfmt6
+
+
+#######################################################################################################################################################################################
+
+7. Use OrthoFinder to identify 1-to-1 orthologs
+
+mkdir -p /workdir/Hayden/Orthofinder/ #load .pep files from above step for each species into this dir
+mkdir -p /workdir/Hayden/Orthofinder/tmp
+source /programs/miniconda3/bin/activate orthofinder-2.5.4
+
+a. Run Orthofinder
+orthofinder -S diamond -t 50 -M msa -f /workdir/Hayden/Chap3/Orthofinder/ -p /workdir/Hayden/Orthofinder/Chap3/tmp
+
+OrthoFinder assigned 77801 genes (91.2% of total) to 18629 orthogroups. Fifty percent of all genes were in orthogroups with 4 or more genes (G50 was 4) and were contained in the largest 7788 orthogroups (O50 was 7788). 
+There were 12226 orthogroups with all species present and 9850 of these consisted entirely of single-copy genes.
+
+
+
+b. Chaos magic to generate new ortholog-based reference
+
+i. Filter Orthogroups.tsv by Orthogroups_SingleCopyOrthologues.txt in R
+
+*add header to Orthogroups_SingleCopyOrthologues.txt before R step
+
+library(tidyverse)
+
+groups <- read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/Orthologs/Orthogroups.tsv")
+one_one <- read_csv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/Orthologs/Orthogroups_SingleCopyOrthologues.txt")
+
+groups_one <- groups %>% filter(Orthogroup %in% one_one$Orthogroup)
+write_tsv(groups_one,"C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/Orthologs/Orthogroups_SingleCopyOrthologues.tsv")
+
+
+ii. Open Orthogroups_SingleCopyOrthologues.tsv in Excel, copy each species' genes into separate Notepad++ tabs and save as l*_scOrthos.lst
+
+iii. Extract correct sc ortho seqs from l*_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder.cds based on l*_scOrthos.lst
+
+/programs/seqtk/seqtk subseq l*_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder.cds l*_scOrthos.lst > l*_scOrthoSeqs.fasta
+
+#######################################################################################################################################################################################
+
+8. Estimate abundances for real
+
+export PATH=/programs/RSEM-1.3.3/bin:$PATH
+export PATH=/programs/bowtie2-2.4.3-linux-x86_64:$PATH
+
+a. RSEM stuff
+
+#KOHALENSIS
+rsem-prepare-reference --bowtie2 lk_scOrthoSeqs.fasta lk_scOrthoSeqs.fasta
+
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K10_R1_001.fastq.gz kept_K10_R2_001.fastq.gz lk_scOrthoSeqs.fasta K10
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K2_R1_001.fastq.gz kept_K2_R2_001.fastq.gz lk_scOrthoSeqs.fasta K2
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K3_R1_001.fastq.gz kept_K3_R2_001.fastq.gz lk_scOrthoSeqs.fasta K3
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K4_R1_001.fastq.gz kept_K4_R2_001.fastq.gz lk_scOrthoSeqs.fasta K4
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K6_R1_001.fastq.gz kept_K6_R2_001.fastq.gz lk_scOrthoSeqs.fasta K6
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K7_R1_001.fastq.gz kept_K7_R2_001.fastq.gz lk_scOrthoSeqs.fasta K7
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K8_R1_001.fastq.gz kept_K8_R2_001.fastq.gz lk_scOrthoSeqs.fasta K8
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_K9_R1_001.fastq.gz kept_K9_R2_001.fastq.gz lk_scOrthoSeqs.fasta K9
+
+
+
+#NEOSPISA
+rsem-prepare-reference --bowtie2 ln_scOrthoSeqs.fasta ln_scOrthoSeqs.fasta
+
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N10_R1_001.fastq.gz kept_N10_R2_001.fastq.gz ln_scOrthoSeqs.fasta N10
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N11_R1_001.fastq.gz kept_N11_R2_001.fastq.gz ln_scOrthoSeqs.fasta N11
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N1_R1_001.fastq.gz kept_N1_R2_001.fastq.gz ln_scOrthoSeqs.fasta N1
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N4_R1_001.fastq.gz kept_N4_R2_001.fastq.gz ln_scOrthoSeqs.fasta N4
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N5_R1_001.fastq.gz kept_N5_R2_001.fastq.gz ln_scOrthoSeqs.fasta N5
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N6_R1_001.fastq.gz kept_N6_R2_001.fastq.gz ln_scOrthoSeqs.fasta N6
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N8_R1_001.fastq.gz kept_N8_R2_001.fastq.gz ln_scOrthoSeqs.fasta N8
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_N9_R1_001.fastq.gz kept_N9_R2_001.fastq.gz ln_scOrthoSeqs.fasta N9
+
+
+#PARANIGRA
+rsem-prepare-reference --bowtie2 lp_scOrthoSeqs.fasta lp_scOrthoSeqs.fasta
+
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P10_R1_001.fastq.gz kept_P10_R2_001.fastq.gz lp_scOrthoSeqs.fasta P10
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P12_R1_001.fastq.gz kept_P12_R2_001.fastq.gz lp_scOrthoSeqs.fasta P12
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P14_R1_001.fastq.gz kept_P14_R2_001.fastq.gz lp_scOrthoSeqs.fasta P14
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P15_R1_001.fastq.gz kept_P15_R2_001.fastq.gz lp_scOrthoSeqs.fasta P15
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P16_R1_001.fastq.gz kept_P16_R2_001.fastq.gz lp_scOrthoSeqs.fasta P16
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P18_R1_001.fastq.gz kept_P18_R2_001.fastq.gz lp_scOrthoSeqs.fasta P18
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P3_R1_001.fastq.gz kept_P3_R2_001.fastq.gz lp_scOrthoSeqs.fasta P3
+rsem-calculate-expression --num-threads 25 --bowtie2 --paired-end kept_P6_R1_001.fastq.gz kept_P6_R2_001.fastq.gz lp_scOrthoSeqs.fasta P6
+
+
+#SPISA
+rsem-prepare-reference --bowtie2 ls_scOrthoSeqs.fasta ls_scOrthoSeqs.fasta
+
+rsem-calculate-expression --num-threads 20 --bowtie2 --paired-end kept_S10_R1_001.fastq.gz kept_S10_R2_001.fastq.gz ls_scOrthoSeqs.fasta S10
+rsem-calculate-expression --num-threads 20 --bowtie2 --paired-end kept_S11_R1_001.fastq.gz kept_S11_R2_001.fastq.gz ls_scOrthoSeqs.fasta S11
+rsem-calculate-expression --num-threads 20 --bowtie2 --paired-end kept_S13_R1_001.fastq.gz kept_S13_R2_001.fastq.gz ls_scOrthoSeqs.fasta S13
+rsem-calculate-expression --num-threads 20 --bowtie2 --paired-end kept_S14_R1_001.fastq.gz kept_S14_R2_001.fastq.gz ls_scOrthoSeqs.fasta S14
+rsem-calculate-expression --num-threads 15 --bowtie2 --paired-end kept_S16_R1_001.fastq.gz kept_S16_R2_001.fastq.gz ls_scOrthoSeqs.fasta S16
+rsem-calculate-expression --num-threads 15 --bowtie2 --paired-end kept_S17_R1_001.fastq.gz kept_S17_R2_001.fastq.gz ls_scOrthoSeqs.fasta S17
+rsem-calculate-expression --num-threads 15 --bowtie2 --paired-end kept_S5_R1_001.fastq.gz kept_S5_R2_001.fastq.gz ls_scOrthoSeqs.fasta S5
+rsem-calculate-expression --num-threads 15 --bowtie2 --paired-end kept_S6_R1_001.fastq.gz kept_S6_R2_001.fastq.gz ls_scOrthoSeqs.fasta S6
+
+
+b. Build matrices
+
+#KOHALENSIS
+/workdir/Hayden/trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map none --name_sample_by_basedir K10/K10.isoforms.results K2/K2.isoforms.results K3/K3.isoforms.results K4/K4.isoforms.results K6/K6.isoforms.results K7/K7.isoforms.results K8/K8.isoforms.results K9/K9.isoforms.results --out_prefix lk
+
+
+#NEOSPISA
+/workdir/Hayden/trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map none --name_sample_by_basedir N10/N10.isoforms.results N11/N11.isoforms.results N1/N1.isoforms.results N4/N4.isoforms.results N5/N5.isoforms.results N6/N6.isoforms.results N8/N8.isoforms.results N9/N9.isoforms.results --out_prefix ln
+
+
+#PARANIGRA
+/workdir/Hayden/trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map none --name_sample_by_basedir P10/P10.isoforms.results P12/P12.isoforms.results P14/P14.isoforms.results P15/P15.isoforms.results P16/P16.isoforms.results P18/P18.isoforms.results P3/P3.isoforms.results P6/P6.isoforms.results --out_prefix lp
+
+
+#SPISA
+/workdir/Hayden/trinityrnaseq-v2.14.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --gene_trans_map none --name_sample_by_basedir S10/S10.isoforms.results S11/S11.isoforms.results S13/S13.isoforms.results S16/S16.isoforms.results S17/S17.isoforms.results S5/S5.isoforms.results S6/S6.isoforms.results --out_prefix ls
+
+
+*** add Orthogroups to counts.matrix files in Excel
+
+c. Merge matrices in R
+
+library(tidyverse)
+
+#Merge count matrices
+lk.matrix<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/lk.isoform.counts.matrix")
+ln.matrix<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/ln.isoform.counts.matrix")
+lp.matrix<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/lp.isoform.counts.matrix")
+ls.matrix<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/ls.isoform.counts.matrix")
+
+lk.lp.matrix<-merge(lk.matrix, lp.matrix, by = "Orthogroup")
+lk.lp.ln.matrix<-merge(lk.lp.matrix, ln.matrix, by = "Orthogroup")
+lk.lp.ln.ls.matrix<-merge(lk.lp.ln.matrix, ls.matrix, by = "Orthogroup")
+
+write.table(lk.lp.ln.ls.matrix, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/tmp/tmp2/merged.isoform.counts.matrix")
+
+
+#Merge TMM EXPR matrices
+lk.tmm.expr.matrix<-read.table("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/lk.isoform.TMM.EXPR.matrix", header = TRUE)
+ln.tmm.expr.matrix<-read.table("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/ln.isoform.TMM.EXPR.matrix", header = TRUE)
+lp.tmm.expr.matrix<-read.table("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/lp.isoform.TMM.EXPR.matrix", header = TRUE)
+ls.tmm.expr.matrix<-read.table("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/ls.isoform.TMM.EXPR.matrix", header = TRUE)
+
+lk.lp.tmm.expr.matrix<-merge(lk.tmm.expr.matrix, lp.tmm.expr.matrix, by = "Orthogroup")
+lk.lp.ln.tmm.expr.matrix<-merge(lk.lp.tmm.expr.matrix, ln.tmm.expr.matrix, by = "Orthogroup")
+lk.lp.ln.ls.tmm.expr.matrix<-merge(lk.lp.ln.tmm.expr.matrix, ls.tmm.expr.matrix, by = "Orthogroup")
+
+write.table(lk.lp.ln.ls.tmm.expr.matrix, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/matrices/merged.TMM.EXPR.matrix")
+
+
+#######################################################################################################################################################################################
+
+9. QC ABUNDANCE ESTIMATES AND MATRICES
+
+cp /home/whw84/5_species_RNAseq/samples_notantalis.txt .
+
+
+a. Compare replicates for each of your samples
+
+/workdir/Hayden/trinityrnaseq-v2.14.0/Analysis/DifferentialExpression/PtR --matrix merged.isoform.counts.ready.matrix --samples samples_notantalis.txt --log2 --CPM --min_rowSums 10 --compare_replicates
+
+
+b. Compare replicates across samples
+
+/workdir/Hayden/trinityrnaseq-v2.14.0/Analysis/DifferentialExpression/PtR --matrix merged.isoform.counts.ready.matrix --min_rowSums 10 -s samples_notantalis.txt --log2 --CPM --sample_cor_matrix
+
+
+c. Make PCA
+
+/workdir/Hayden/trinityrnaseq-v2.14.0/Analysis/DifferentialExpression/PtR --matrix merged.isoform.counts.ready.matrix -s samples_notantalis.txt --min_rowSums 10 --log2 --CPM --center_rows --prin_comp 3 
+
+#######################################################################################################################################################################################
+
+
+10. DIFFERENTIAL EXPRESSION USING DESEQ2 (30 minutes)
+
+R
+BiocManager::install(c("edgeR", "limma", "DESeq2", "ctc", "Biobase", "gplots", "ape", "argparse"))
+q()
+
+/workdir/Hayden/trinityrnaseq-v2.14.0/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix merged.isoform.counts.ready.matrix --method DESeq2 --samples_file samples_notantalis.txt --output laupala
+
+
+#######################################################################################################################################################################################
+
+
+11. Annotation
+
+
+a. Extract scOrtho Protein seqs from lk_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder.pep based on lk_scOrthos.lst
+
+/programs/seqtk/seqtk subseq lk_Trinity_cdhit98_1TPMfiltered_longestiso.transdecoder.pep lk_scOrthos.lst > lk_scOrthoProts.pep
+
+
+#Reciprocal BLAST
+
+wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+gunzip uniprot_sprot.fasta.gz
+
+/programs/diamond/diamond makedb --in uniprot_sprot.fasta -d uniprot_db
+/programs/diamond/diamond blastp --query lk_scOrthoProts.pep -d uniprot_db --out lk_scOrthoProts.pep_blastp.outfmt6 --evalue 1e-5 --threads 80 --max-target-seqs 1 --outfmt 6
+
+/programs/diamond/diamond makedb --in lk_scOrthoProts.pep -d lk_db
+/programs/diamond/diamond blastp --query uniprot_sprot.fasta -d lk_db --out uniprot_blastp.outfmt6 --evalue 1e-5 --threads 80 --max-target-seqs 1 --outfmt 6
+
+
+b. Merge blast hits with DE Results in R
+
+
+blast<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/lk_scOrthoProts.pep_blastp.outfmt6")
+orthos<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/lk_transcripts_and_orthos.txt")
+annot_ortho<-merge(blast, orthos, by="Transcript", all = TRUE)
+
+write_tsv(annot_ortho, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/annots")
+
+
+annots<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/annots_R.txt")
+lk_x_ln<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.KOHALENSIS_vs_NEOSPISA.DESeq2.DE_results")
+lk_x_lp<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.KOHALENSIS_vs_PARANIGRA.DESeq2.DE_results")
+lk_x_ls<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.KOHALENSIS_vs_SPISA.DESeq2.DE_results")
+ln_x_lp<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.NEOSPISA_vs_PARANIGRA.DESeq2.DE_results")
+ln_x_ls<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.NEOSPISA_vs_SPISA.DESeq2.DE_results")
+lp_x_ls<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/merged.isoform.counts.ready.matrix.PARANIGRA_vs_SPISA.DESeq2.DE_results")
+
+lk_vs_ln.annotated.results<-merge(lk_x_ln, annots, by="Orthogroup", all=TRUE)
+lk_vs_lp.annotated.results<-merge(lk_x_lp, annots, by="Orthogroup", all=TRUE)
+lk_vs_ls.annotated.results<-merge(lk_x_ls, annots, by="Orthogroup", all=TRUE)
+ln_vs_lp.annotated.results<-merge(ln_x_lp, annots, by="Orthogroup", all=TRUE)
+ln_vs_ls.annotated.results<-merge(ln_x_ls, annots, by="Orthogroup", all=TRUE)
+lp_vs_ls.annotated.results<-merge(lp_x_ls, annots, by="Orthogroup", all=TRUE)
+
+
+write.table(lk_vs_ln.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_ln.annotated.results")
+write.table(lk_vs_lp.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_lp.annotated.results")
+write.table(lk_vs_ls.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_ls.annotated.results")
+write.table(ln_vs_lp.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/ln_vs_lp.annotated.results")
+write.table(ln_vs_ls.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/ln_vs_ls.annotated.results")
+write.table(lp_vs_ls.annotated.results, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lp_vs_ls.annotated.results")
+
+
+c. Merge with GO Terms identified by uniprot
+
+GOs<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/all.GOs.txt")
+lk_lp_annots<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_lp.annotated.results.txt")
+GOmerged<-merge(GOs, lk_lp_annots, by = "BLASP", all = TRUE)
+
+write_tsv(GOmerged, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/lk_vs_lp.annotated.results.GOs.txt")
+
+
+GOs<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/all.GOs.txt")
+ln_ls_annots<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/ln_vs_ls.annotated.results.txt")
+GOmerged<-merge(GOs, ln_ls_annots, by = "BLASP", all = TRUE)
+
+write_tsv(GOmerged, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/ln_vs_ls.annotated.results.GOs.txt")
+
+
+d. Reciprocal BLAST with DROME
+
+#ONE WAY
+/programs/diamond/diamond makedb --in drome.pep -d drome_db
+/programs/diamond/diamond blastp --query lk_scOrthoProts.pep -d drome_db --out lk_scOrthoProts.pep_blastp.outfmt6 --evalue 1e-5 --threads 80 --max-target-seqs 1 --outfmt 6
+
+
+#OTHER WAY
+/programs/diamond/diamond makedb --in lk_scOrthoProts.pep -d lk_db
+/programs/diamond/diamond blastp --query drome.pep -d lk_db --out drome_blastp.outfmt6 --evalue 1e-5 --threads 80 --max-target-seqs 1 --outfmt 6
+
+
+#######################################################################################################################################################################################
+
+13. Map DE transcripts to genome with GMAP
+
+export PATH=/programs/gmap-2021-12-17/bin:$PATH
+
+a. make genome index
+
+gmap_build -D /workdir/Hayden/gmap -d lkgenome Lakoh057scf.fa
+
+b. map transcriptome to genome
+
+gmap -D /workdir/Hayden/gmap -d lkgenome -S -A -f gff3_gene --use-shared-memory=1 -t 90 lk_scOrthoSeqs.fasta > laupala_GMAP
+
+c. more blood magic in R
+
+library(tidyverse)
+library(dplyr)
+
+#Step 1 - Clean GMAP file
+
+laupala_gmap<-read.delim("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/laupala_GMAP", sep="\t", skip=2, header=FALSE)
+laupala_gmap_filtered<-laupala_gmap[laupala_gmap$V3 == "gene",]
+write_tsv(laupala_gmap_filtered, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/laupala_GMAP_filtered")
+
+#Step 2 - Clean and prepare filtered GMAP file along with all of the DE results files in Excel
+
+#Step 3 - Merge cleaned GMAP file with Orthogroups file
+
+orthos<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/lk_transcripts_and_orthos.txt")
+gmap_filtered<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/laupala_GMAP_filtered_cleaned.txt")
+gmap_filtered_withOrthos<-merge(orthos, gmap_filtered, by="Transcript")
+
+write_tsv(gmap_filtered_withOrthos, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/laupala_GMAP_filtered_withOrthos")
+
+#Step 4- Merge Step 3 output with uppies and downies
+
+gmap_filtered_withOrthos<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/laupala_GMAP_filtered_withOrthos.txt")
+downies<-read_csv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/lk_ln.uppies.csv")
+downies_GMAP<-merge(downies, gmap_filtered_withOrthos, by = "Orthogroup")
+
+uppies<-read_csv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/lk_ln.downies.csv")
+uppies_GMAP<-merge(uppies, gmap_filtered_withOrthos, by = "Orthogroup")
+
+
+write_tsv(downies_GMAP, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/downies_GMAP")
+write_tsv(uppies_GMAP, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/GOs/uppies_GMAP")
+
+
+#Step 5 - Merge Step 3 output with full DE results
+
+lk_lp<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_lp.annotated.results.txt")
+lk_lp_GMAP<-merge(lk_lp, gmap_filtered_withOrthos)
+
+
+ln_ls<-read_tsv("C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/ln_vs_ls.annotated.results.txt")
+ln_ls_GMAP<-merge(ln_ls, gmap_filtered_withOrthos)
+
+
+write_tsv(lk_lp_GMAP, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/lk_vs_lp.annotated.GMAP.results.txt")
+write_tsv(ln_ls_GMAP, file="C:/Users/hayde/Documents/GRAD_SKEWL/Projects_Experiments/5_species_RNAseq/no_tantalis/DESeq2/ln_vs_ls.annotated.GMAP.results.txt")
+
+#######################################################################################################################################################################################
+
+14. Parallel Evolution of Gene Expression
+ 
+a. GeneOverlap packge in R
+
+BiocManager::install("GeneOverlap")
+library(GeneOverlap)
+library(tidyverse)
+
+##Read in and format lklp DE genes list
+lklp=read_tsv("C:/Users/hayde/OneDrive/Documents/GRAD_SKEWL/4_species/GeneOverlap/lklp.txt")  
+
+a=lklp$Expr_High
+b=lklp$Expr_Low
+lst=list(a,b)
+names(lst)=colnames(lklp)
+print(lst)
+
+##Read in and format lnls DE genes list
+lnls=read_tsv("C:/Users/hayde/OneDrive/Documents/GRAD_SKEWL/4_species/GeneOverlap/lnls.txt")  
+
+c=lnls$Expr_High
+d=lnls$Expr_Low
+lst2=list(c,d)
+names(lst2)=colnames(lnls)
+print(lst2)
+
+##Set genome size
+gs.RNASeq=9850L
+
+
+##Parallel High
+go.obj <- newGeneOverlap(lst$"Expr_High",lst2$"Expr_High",genome.size=gs.RNASeq)
+go.obj
+
+go.obj <- testGeneOverlap(go.obj)
+go.obj
+
+gom.obj <- newGOM(hESC.ChIPSeq.list, hESC.RNASeq.list,gs.RNASeq)
+drawHeatmap(gom.obj)
+
+***
+GeneOverlap object:
+listA size=838
+listB size=1016
+Intersection size=157
+Overlapping p-value=9.6e-15
+Jaccard Index=0.1
+***
+
+##Parallel Low
+go.obj <- newGeneOverlap(lst$"Expr_Low",lst2$"Expr_Low",genome.size=gs.RNASeq)
+go.obj
+
+go.obj <- testGeneOverlap(go.obj)
+go.obj
+
+gom.obj <- newGOM(hESC.ChIPSeq.list, hESC.RNASeq.list,gs.RNASeq)
+drawHeatmap(gom.obj)
+
+***
+GeneOverlap object:
+listA size=906
+listB size=944
+Intersection size=125
+Overlapping p-value=1e-05
+Jaccard Index=0.1
+***
